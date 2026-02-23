@@ -1,0 +1,27 @@
+[project]
+name = "fastapi-service"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Pawel Zielkowski",email = "paw.zielkowski@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.132.0,<0.133.0)",
+    "uvicorn (>=0.41.0,<0.42.0)"
+]
+
+[tool.poetry]
+packages = [{include = "fastapi_service", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.2,<10.0.0)",
+    "isort (>=8.0.0,<9.0.0)",
+    "ruff (>=0.15.2,<0.16.0)"
+]
