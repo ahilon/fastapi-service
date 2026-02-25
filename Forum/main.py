@@ -35,4 +35,3 @@ def create_post(post: schemas.TravelPostCreate, db: Session = Depends(get_db)):
 @app.get("/posts")
 def list_posts(db: Session = Depends(get_db)):
     return db.query(models.TravelPost).all()
-
