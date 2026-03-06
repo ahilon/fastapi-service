@@ -1,19 +1,21 @@
 from pydantic import BaseModel
+from typing import Optional
 
-
-class CostBreakdown(BaseModel):
-    food: float
-    accommodation: float
-    transport: float
-    attractions: float
-    souvenirs: float
-
-class TravelPostCreate(BaseModel):
+class TravelPostBase(BaseModel):
     country: str
-    total_cost: float
-    breakdown: CostBreakdown
+    total_cost: Optional[float] = None
+    food: Optional[float] = None
+    accommodation: Optional[float] = None
+    transport: Optional[float] = None
+    attractions: Optional[float] = None
+    souvenirs: Optional[float] = None
 
-class TravelPostResponse(BaseModel):
-    country:str
-    total_cost:float
-    breakdown:CostBreakdown
+
+class TravelPostCreate(TravelPostBase):
+    pass
+
+class TravelPostResponse(TravelPostBase):
+    id: int
+
+    class Config:
+        from_attributes = True
