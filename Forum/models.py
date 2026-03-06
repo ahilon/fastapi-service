@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float
-from database import Base
+from Forum.database import Base
 
 class TravelPost(Base):
     __tablename__ = "posts"
@@ -12,3 +12,4 @@ class TravelPost(Base):
     accommodation = Column(Float)
     transport = Column(Float)
     attractions = Column(Float)
+    souvenirs = Column(Float)
